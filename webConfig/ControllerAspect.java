@@ -32,8 +32,8 @@ public class ControllerAspect {
 			sessions.remove(token);
 			return ResponseEntity.status(HttpStatus.GATEWAY_TIMEOUT).body("session timeout");
 		}
-		ResponseEntity<?> r = (ResponseEntity<?>) jp.proceed();
 		s.setLastAccessed(System.currentTimeMillis());
+		ResponseEntity<?> r = (ResponseEntity<?>) jp.proceed();
 		return r;
 	}
 
